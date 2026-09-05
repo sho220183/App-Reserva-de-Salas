@@ -103,7 +103,23 @@
         <section id="tab-salas" class="tab-panel oculto">
 
             <section class="tarjeta">
-                <h2>Agregar Sala</h2>
+                <h2>Tipos de Equipamiento</h2>
+                <p class="ayuda">Este catálogo es el que se puede asignar a cada sala.</p>
+                <form id="formularioEquipamiento">
+                    <div class="campo">
+                        <label for="nombreEquipamiento">Nuevo equipamiento:</label>
+                        <input type="text" id="nombreEquipamiento" name="nombreEquipamiento" placeholder="Ej: Micrófono">
+                    </div>
+                    <button type="submit" class="btn">Agregar Equipamiento</button>
+                </form>
+                <div id="mensajeVacioEquipamiento" class="mensaje-vacio oculto">
+                    <p>No hay equipamiento cargado.</p>
+                </div>
+                <div id="listadoEquipamiento" class="chips"></div>
+            </section>
+
+            <section class="tarjeta">
+                <h2 id="tituloFormularioSala">Agregar Sala</h2>
                 <form id="formularioSala">
                     <div class="fila-campos">
                         <div class="campo">
@@ -118,17 +134,13 @@
 
                     <div class="campo">
                         <label>Equipamiento disponible:</label>
-                        <div class="checkboxes">
-                            <label><input type="checkbox" name="equipamientoSala" value="Proyector"> Proyector</label>
-                            <label><input type="checkbox" name="equipamientoSala" value="Pizarra"> Pizarra</label>
-                            <label><input type="checkbox" name="equipamientoSala" value="Videoconferencia"> Videoconferencia</label>
-                            <label><input type="checkbox" name="equipamientoSala" value="Televisor"> Televisor</label>
-                            <label><input type="checkbox" name="equipamientoSala" value="Aire acondicionado"> Aire acondicionado</label>
-                            <label><input type="checkbox" name="equipamientoSala" value="Wifi"> Wifi</label>
-                        </div>
+                        <div id="equipamientoSalaOpciones" class="checkboxes"></div>
                     </div>
 
-                    <button type="submit" class="btn">Agregar Sala</button>
+                    <div class="acciones-formulario">
+                        <button type="submit" class="btn" id="botonGuardarSala">Agregar Sala</button>
+                        <button type="button" id="botonCancelarEdicionSala" class="btn-secundario oculto">Cancelar edición</button>
+                    </div>
                 </form>
             </section>
 
@@ -172,7 +184,17 @@
                 <ol class="lista-tips">
                     <li>Andá a la pestaña <strong>Salas</strong> para ver todas las salas creadas.</li>
                     <li>Para agregar una nueva, completá el <strong>nombre</strong>, la <strong>capacidad</strong> y tildá el <strong>equipamiento</strong> disponible, luego presioná <strong>Agregar Sala</strong>.</li>
+                    <li>Para modificar una sala existente, presioná <strong>Editar</strong> en su fila: el formulario se completa con sus datos y podés cambiar nombre, capacidad o agregar/quitar equipamiento. Presioná <strong>Guardar Cambios</strong> para confirmar, o <strong>Cancelar edición</strong> para descartar.</li>
                     <li>Al <strong>eliminar</strong> una sala también se eliminan todas las reservas asociadas a ella, así que la app te pide confirmación antes de borrar.</li>
+                </ol>
+            </section>
+
+            <section class="tarjeta">
+                <h2>¿Cómo agregar nuevos tipos de equipamiento?</h2>
+                <ol class="lista-tips">
+                    <li>En la pestaña <strong>Salas</strong>, arriba de todo está el catálogo de <strong>Tipos de Equipamiento</strong>.</li>
+                    <li>Escribí el nombre (por ejemplo "Micrófono") y presioná <strong>Agregar Equipamiento</strong>. Va a aparecer disponible para tildar en cualquier sala.</li>
+                    <li>Para quitar un tipo de equipamiento del catálogo, presioná la <strong>×</strong> de su chip. Se va a quitar también de todas las salas que lo tuvieran asignado.</li>
                 </ol>
             </section>
 
