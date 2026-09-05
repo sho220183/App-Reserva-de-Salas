@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Salas de Reuniones</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="js/script.js"></script>
+</head>
+<body>
+    <main class="contenedor">
+
+        <h1>Reserva de Salas de Reuniones</h1>
+        <p class="descripcion">Gestioná las salas disponibles y reservá el horario que necesites.</p>
+
+        <nav class="tabs">
+            <button type="button" class="tab-btn activo" data-tab="reservas">Reservar</button>
+            <button type="button" class="tab-btn" data-tab="salas">Salas</button>
+        </nav>
+
+        <section id="tab-reservas" class="tab-panel">
+
+            <section class="tarjeta">
+                <h2>Nueva Reserva</h2>
+                <form id="formularioReserva">
+                    <div class="campo">
+                        <label for="selectSala">Sala:</label>
+                        <select id="selectSala" name="selectSala" required>
+                            <option value="">Seleccioná una sala</option>
+                        </select>
+                    </div>
+
+                    <div class="fila-campos">
+                        <div class="campo">
+                            <label for="fechaReserva">Fecha:</label>
+                            <input type="date" id="fechaReserva" name="fechaReserva" required>
+                        </div>
+                        <div class="campo">
+                            <label for="horaInicioReserva">Hora inicio:</label>
+                            <input type="time" id="horaInicioReserva" name="horaInicioReserva" required>
+                        </div>
+                        <div class="campo">
+                            <label for="horaFinReserva">Hora fin:</label>
+                            <input type="time" id="horaFinReserva" name="horaFinReserva" required>
+                        </div>
+                    </div>
+
+                    <div class="fila-campos">
+                        <div class="campo">
+                            <label for="solicitanteReserva">Solicitante:</label>
+                            <input type="text" id="solicitanteReserva" name="solicitanteReserva" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="campo">
+                            <label for="cantidadPersonas">Cantidad de personas:</label>
+                            <input type="number" id="cantidadPersonas" name="cantidadPersonas" min="1" placeholder="Ej: 4" required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="motivoReserva">Motivo de la reunión:</label>
+                        <input type="text" id="motivoReserva" name="motivoReserva" placeholder="Ej: Reunión con cliente" required>
+                    </div>
+
+                    <div class="campo">
+                        <label>Equipamiento a utilizar:</label>
+                        <div id="equipamientoReservaOpciones" class="checkboxes">
+                            <p class="ayuda">Seleccioná primero una sala.</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Reservar Sala</button>
+                </form>
+            </section>
+
+            <section class="tarjeta">
+                <h2>Reservas Registradas</h2>
+                <div id="mensajeVacioReservas" class="mensaje-vacio">
+                    <p>No hay reservas registradas.</p>
+                </div>
+                <table id="tablaReservas" class="tabla oculto">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sala</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Solicitante</th>
+                            <th>Personas</th>
+                            <th>Equipamiento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listadoReservas"></tbody>
+                </table>
+            </section>
+
+        </section>
+
+        <section id="tab-salas" class="tab-panel oculto">
+
+            <section class="tarjeta">
+                <h2>Agregar Sala</h2>
+                <form id="formularioSala">
+                    <div class="fila-campos">
+                        <div class="campo">
+                            <label for="nombreSala">Nombre de la sala:</label>
+                            <input type="text" id="nombreSala" name="nombreSala" placeholder="Ej: Sala Norte" required>
+                        </div>
+                        <div class="campo">
+                            <label for="capacidadSala">Capacidad:</label>
+                            <input type="number" id="capacidadSala" name="capacidadSala" min="1" placeholder="Ej: 8" required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label>Equipamiento disponible:</label>
+                        <div class="checkboxes">
+                            <label><input type="checkbox" name="equipamientoSala" value="Proyector"> Proyector</label>
+                            <label><input type="checkbox" name="equipamientoSala" value="Pizarra"> Pizarra</label>
+                            <label><input type="checkbox" name="equipamientoSala" value="Videoconferencia"> Videoconferencia</label>
+                            <label><input type="checkbox" name="equipamientoSala" value="Televisor"> Televisor</label>
+                            <label><input type="checkbox" name="equipamientoSala" value="Aire acondicionado"> Aire acondicionado</label>
+                            <label><input type="checkbox" name="equipamientoSala" value="Wifi"> Wifi</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Agregar Sala</button>
+                </form>
+            </section>
+
+            <section class="tarjeta">
+                <h2>Salas Registradas</h2>
+                <div id="mensajeVacioSalas" class="mensaje-vacio">
+                    <p>No hay salas registradas.</p>
+                </div>
+                <table id="tablaSalas" class="tabla oculto">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Capacidad</th>
+                            <th>Equipamiento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listadoSalas"></tbody>
+                </table>
+            </section>
+
+        </section>
+
+    </main>
+</body>
+</html>
