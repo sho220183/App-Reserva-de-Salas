@@ -10,12 +10,16 @@
 <body>
     <main class="contenedor">
 
-        <h1>Reserva de Salas de Reuniones</h1>
+        <header class="encabezado-superior">
+            <h1>Reserva de Salas de Reuniones</h1>
+            <button type="button" id="botonTema" class="btn-tema" aria-label="Cambiar tema">🌙 Modo oscuro</button>
+        </header>
         <p class="descripcion">Gestioná las salas disponibles y reservá el horario que necesites.</p>
 
         <nav class="tabs">
             <button type="button" class="tab-btn activo" data-tab="reservas">Reservar</button>
             <button type="button" class="tab-btn" data-tab="salas">Salas</button>
+            <button type="button" class="tab-btn" data-tab="ayuda">Ayuda</button>
         </nav>
 
         <section id="tab-reservas" class="tab-panel">
@@ -145,6 +149,40 @@
                     </thead>
                     <tbody id="listadoSalas"></tbody>
                 </table>
+            </section>
+
+        </section>
+
+        <section id="tab-ayuda" class="tab-panel oculto">
+
+            <section class="tarjeta">
+                <h2>¿Cómo hacer una reserva?</h2>
+                <ol class="lista-tips">
+                    <li>Andá a la pestaña <strong>Reservar</strong> y elegí una sala del listado desplegable. Vas a ver su capacidad entre paréntesis.</li>
+                    <li>Completá la <strong>fecha</strong> y el <strong>horario</strong> (hora de inicio y de fin). No se permiten fechas pasadas ni horas de fin anteriores a la de inicio.</li>
+                    <li>Indicá el <strong>solicitante</strong>, la <strong>cantidad de personas</strong> (no puede superar la capacidad de la sala) y el <strong>motivo</strong> de la reunión.</li>
+                    <li>Tildá el <strong>equipamiento</strong> que vas a necesitar. Solo aparece el equipamiento que esa sala tiene disponible.</li>
+                    <li>Presioná <strong>Reservar Sala</strong>. Si el horario elegido se superpone con otra reserva de la misma sala, la app te va a avisar y no va a guardar la reserva.</li>
+                    <li>Para cancelar una reserva, buscala en la tabla de <strong>Reservas Registradas</strong> y presioná <strong>Cancelar</strong>.</li>
+                </ol>
+            </section>
+
+            <section class="tarjeta">
+                <h2>¿Cómo administrar las salas?</h2>
+                <ol class="lista-tips">
+                    <li>Andá a la pestaña <strong>Salas</strong> para ver todas las salas creadas.</li>
+                    <li>Para agregar una nueva, completá el <strong>nombre</strong>, la <strong>capacidad</strong> y tildá el <strong>equipamiento</strong> disponible, luego presioná <strong>Agregar Sala</strong>.</li>
+                    <li>Al <strong>eliminar</strong> una sala también se eliminan todas las reservas asociadas a ella, así que la app te pide confirmación antes de borrar.</li>
+                </ol>
+            </section>
+
+            <section class="tarjeta">
+                <h2>Otros tips</h2>
+                <ul class="lista-tips">
+                    <li>Usá el botón <strong>🌙 Modo oscuro / ☀️ Modo claro</strong>, arriba a la derecha, para cambiar la apariencia. Tu preferencia se guarda automáticamente.</li>
+                    <li>Todos los datos (salas y reservas) se guardan en el navegador (<code>localStorage</code>), no se comparten con otros dispositivos ni usuarios.</li>
+                    <li>Si borrás los datos del navegador o usás otro navegador/dispositivo, vas a partir de las salas de ejemplo precargadas.</li>
+                </ul>
             </section>
 
         </section>

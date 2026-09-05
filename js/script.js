@@ -1,9 +1,12 @@
 import { inicializarDatos } from './storage.js';
 import { renderizarSalas, agregarSala } from './salas.js';
 import { renderizarReservas, agregarReserva, poblarSelectSalas, actualizarEquipamientoDisponible } from './reservas.js';
+import { inicializarTema, alternarTema } from './tema.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     inicializarDatos();
+    inicializarTema();
+    document.getElementById('botonTema').addEventListener('click', alternarTema);
 
     const botonesTab = document.querySelectorAll('.tab-btn');
     botonesTab.forEach((boton) => {

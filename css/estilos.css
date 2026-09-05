@@ -1,3 +1,35 @@
+:root {
+    --color-fondo: #f4f6f8;
+    --color-texto: #333;
+    --color-texto-tenue: #666;
+    --color-tarjeta: #fff;
+    --color-borde: #ccc;
+    --color-borde-tabla: #ddd;
+    --color-primario: #007BFF;
+    --color-primario-suave: #e6f0ff;
+    --color-primario-hover: #0056b3;
+    --color-peligro: #dc3545;
+    --color-peligro-hover: #c82333;
+    --color-texto-th: #fff;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+[data-tema="oscuro"] {
+    --color-fondo: #181a1b;
+    --color-texto: #e4e6eb;
+    --color-texto-tenue: #b0b3b8;
+    --color-tarjeta: #242526;
+    --color-borde: #3a3b3c;
+    --color-borde-tabla: #3a3b3c;
+    --color-primario: #3391ff;
+    --color-primario-suave: #1e2b3d;
+    --color-primario-hover: #1f6fd1;
+    --color-peligro: #e35d6a;
+    --color-peligro-hover: #c8404f;
+    --color-texto-th: #fff;
+    --color-sombra: rgba(0, 0, 0, 0.4);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,9 +38,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    background-color: var(--color-fondo);
     padding: 20px;
-    color: #333;
+    color: var(--color-texto);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .contenedor {
@@ -17,15 +50,38 @@ body {
     margin: 40px auto;
 }
 
+.encabezado-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
 h1 {
     text-align: center;
-    margin-bottom: 10px;
+}
+
+.btn-tema {
+    padding: 8px 16px;
+    border: 1px solid var(--color-primario);
+    background-color: var(--color-tarjeta);
+    color: var(--color-primario);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-tema:hover {
+    background-color: var(--color-primario-suave);
 }
 
 .descripcion {
     text-align: center;
     margin-bottom: 25px;
-    color: #666;
+    color: var(--color-texto-tenue);
 }
 
 .tabs {
@@ -37,9 +93,9 @@ h1 {
 
 .tab-btn {
     padding: 10px 20px;
-    border: 1px solid #007BFF;
-    background-color: #fff;
-    color: #007BFF;
+    border: 1px solid var(--color-primario);
+    background-color: var(--color-tarjeta);
+    color: var(--color-primario);
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
@@ -47,20 +103,21 @@ h1 {
 }
 
 .tab-btn:hover {
-    background-color: #e6f0ff;
+    background-color: var(--color-primario-suave);
 }
 
 .tab-btn.activo {
-    background-color: #007BFF;
+    background-color: var(--color-primario);
     color: #fff;
 }
 
 .tarjeta {
-    background-color: #fff;
+    background-color: var(--color-tarjeta);
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--color-sombra);
+    transition: background-color 0.3s ease;
 }
 
 .tarjeta h2 {
@@ -92,14 +149,16 @@ h1 {
 .campo select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-borde);
     border-radius: 5px;
     font-size: 1em;
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
 }
 
 .campo input:focus,
 .campo select:focus {
-    border-color: #007BFF;
+    border-color: var(--color-primario);
     outline: none;
 }
 
@@ -121,14 +180,27 @@ h1 {
 }
 
 .ayuda {
-    color: #666;
+    color: var(--color-texto-tenue);
     font-style: italic;
+}
+
+.lista-tips {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lista-tips code {
+    background-color: var(--color-primario-suave);
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #007BFF;
+    background-color: var(--color-primario);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -138,7 +210,7 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: var(--color-primario-hover);
     opacity: 0.9;
 }
 
@@ -152,17 +224,17 @@ h1 {
 
 .tabla th, .tabla td {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde-tabla);
     text-align: left;
 }
 
 .tabla th {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: var(--color-primario);
+    color: var(--color-texto-th);
 }
 
 .btn-eliminar {
-    background-color: #dc3545;
+    background-color: var(--color-peligro);
     color: #fff;
     border: none;
     padding: 8px 15px;
@@ -172,12 +244,12 @@ h1 {
 }
 
 .btn-eliminar:hover {
-    background-color: #c82333;
+    background-color: var(--color-peligro-hover);
 }
 
 .mensaje-vacio {
     text-align: center;
-    color: #666;
+    color: var(--color-texto-tenue);
     margin-top: 20px;
 }
 
